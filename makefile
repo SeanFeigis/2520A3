@@ -1,7 +1,7 @@
 CFLAGS = -std=c99 -g -pedantic -Wall
 CC = gcc
 
-all: list.o list.h test1 test2 test3
+all: list.o list.h
 
 list.o: list.c list.h
 	$(CC) $(CFLAGS) -c list.c
@@ -25,4 +25,4 @@ test3: test3.o list.c list.h
 	$(CC) $(CFLAGS) test3.o list.o -o test3
 
 clean:
-	rm *.o test1 test2 test3
+	rm *.o
