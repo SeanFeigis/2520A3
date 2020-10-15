@@ -1,4 +1,4 @@
-CFLAGS = -std=c99 -g -pedantic -Wall
+CFLAGS = -std=c99 -pedantic -Wall
 CC = gcc
 
 all: list.o list.h
