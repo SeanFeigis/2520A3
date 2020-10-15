@@ -19,11 +19,11 @@ struct Performance *newPerformance() {
 
 void push (struct Performance *performance, struct Node **list_ptr, void *src, unsigned int width) {
   struct Node *temp = (struct Node *) malloc(sizeof(struct Node));
-  if (temp == NULL) { //Null malloc check
+  if (!temp) { //Null malloc check
     fprintf(stderr, "%s\n", "Error, malloc failed");
     exit(0);
   }
-  if ((temp->data = (void *) malloc(width) ) == NULL) { //Null malloc check
+  if (!(temp->data = (void *) malloc(width))) { //Null malloc check
     fprintf(stderr, "%s\n", "Error, malloc failed");
     exit(0);
   }
@@ -39,7 +39,7 @@ void push (struct Performance *performance, struct Node **list_ptr, void *src, u
 
 
 void readHead (struct Performance *performance, struct Node **list_ptr, void *dest, unsigned int width ) {
-  if (*list_ptr == NULL) { //Null Pointer check
+  if (!(*list_ptr)) { //Null Pointer check
     fprintf(stderr, "%s\n", "Error, list empty");
     exit(0);
   } else {
@@ -49,7 +49,7 @@ void readHead (struct Performance *performance, struct Node **list_ptr, void *de
 }
 
 void pop (struct Performance *performance, struct Node **list_ptr, void *dest, unsigned int width ) {
-  if (*list_ptr == NULL) { //Null Pointer check
+  if (!(*list_ptr)) { //Null Pointer check
     fprintf(stderr, "%s\n", "Error, list empty");
     exit(0);
   }
@@ -65,7 +65,7 @@ void pop (struct Performance *performance, struct Node **list_ptr, void *dest, u
 }
 
 struct Node **next( struct Performance *performance, struct Node **list_ptr) {
-  if (*list_ptr == NULL) { //Null Pointer check
+  if (!(*list_ptr)) { //Null Pointer check
     fprintf(stderr, "%s\n", "Error, list empty");
     exit(0);
   }
@@ -74,7 +74,7 @@ struct Node **next( struct Performance *performance, struct Node **list_ptr) {
 }
 
 int isEmpty (struct Performance *performance, struct Node **list_ptr) {
-  if (*list_ptr == NULL) { //Null Pointer check
+  if (!(*list_ptr)) { //Null Pointer check
     return 1;
   } else {
     return 0;
